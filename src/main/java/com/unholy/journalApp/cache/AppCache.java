@@ -24,6 +24,7 @@ public class AppCache {
         for (ConfigJournalAppEntity configJournalAppEntity : all){
             APP_CACHE.put(configJournalAppEntity.getKey(), configJournalAppEntity.getValue());
         }
+
     }
 
 }
