@@ -1,23 +1,15 @@
-#spring.application.name=Journal App
-#spring.data.mongodb.uri=mongodb+srv://unholyhuman:15Bhzxc778@cluster0.twfqwsq.mongodb.net/
-#spring.data.mongodb.database=journaldb
-#spring.data.mongodb.auto-index-creation=true
-#spring.main.allow-circular-references=true
-#server.port=8081
-#server.servlet.context-path=/unholy
 
-#if same property is defined in .yml and .properties then .properties will get priority
 
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://unholyhuman:15Bhzxc778@cluster0.twfqwsq.mongodb.net
-      database: journaldb
+      uri:
+      database: ${MONGODB_URI}
       auto-index-creation: true
   main:
     allow-circular-references: true
 
 server:
-  port: 8081
+  port: ${ SEVER_PORT }
   servlet:
     context-path: /unholy-dev

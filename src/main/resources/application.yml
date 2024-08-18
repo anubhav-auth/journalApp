@@ -1,39 +1,16 @@
-#spring.application.name=Journal App
-#spring.data.mongodb.uri=mongodb+srv://unholyhuman:15Bhzxc778@cluster0.twfqwsq.mongodb.net/
-#spring.data.mongodb.database=journaldb
-#spring.data.mongodb.auto-index-creation=true
-#spring.main.allow-circular-references=true
-#server.port=8081
-#server.servlet.context-path=/unholy
-
-#if same property is defined in .yml and .properties then .properties will get priority
-
-#spring:
-#  data:
-#    mongodb:
-#      uri: mongodb+srv://unholyhuman:15Bhzxc778@cluster0.twfqwsq.mongodb.net/
-#      database: journaldb
-#      auto-index-creation: true
-#  main:
-#    allow-circular-references: true
-#
-#server:
-#  port: 8081
-#  servlet:
-#    context-path: /unholy
 
 spring:
   data:
     redis:
-      url: redis://default:pnbQBftbNCqchmNV6ijPAP1u7yY6howo@redis-14380.c305.ap-south-1-1.ec2.redns.redis-cloud.com:14380
+      url: ${REDIS_URL}
   profiles:
     active:
       dev
   mail:
     host: smtp.gmail.com
-    port: 587
-    username: fortv3457@gmail.com
-    password: qfvm buoc yxqb ecba # this is app password go on gmail and search
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD} # this is app password go on gmail and search
     properties:
       mail:
         smtp:
@@ -41,12 +18,12 @@ spring:
           starttls:
             enable: true
   kafka:
-    bootstrap-servers: pkc-921jm.us-east-2.aws.confluent.cloud:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer:  org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: weeky-sentiments-group
+      group-id: ${KAFKA_CONSUMER_GROUP_ID}
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer:  org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
@@ -57,11 +34,11 @@ spring:
 
     properties:
       security:
-        protocol: SASL_SSL
+        protocol: ${KAFKA_SECURITY_PROTOCOL}
       sasl:
-        mechanism: PLAIN
+        mechanism: ${KAFKA_SASL_MECHANISM}
         jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='OVOWKMVTKK5PZZHB' password='vEIr9pMvBi6kvuSWLApwRy/WBdfk3GmkmyzAG0L2dBwxaQ4LEHvtc4oU6SGm1W3F';
+          config: ${KAFKA_JAAS_CONFIG}
       session:
         timeout:
           ms: 45000
@@ -69,7 +46,7 @@ spring:
 
 
 #adding apis keys here so as to not commit them
-weather_api_key: b37814fb917c43fe84e115308240607
+weather_api_key: ${WEATHER_API_KEY}
 
 
 
