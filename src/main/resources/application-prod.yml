@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DATABASE}
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: ${SEVER_PORT}
+  servlet:
+    context-path: /unholy-prod
