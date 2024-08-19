@@ -28,7 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<sonar.login>sqa_318baee1297b4985732188799529d4762be7a694</sonar.login>
+		<!--suppress UnresolvedMavenProperty -->
+		<sonar.login>${SONAR_LOGIN}</sonar.login>
 	</properties>
 	<dependencies>
 		<dependency>
